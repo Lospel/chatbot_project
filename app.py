@@ -79,7 +79,11 @@ def calCulator():
     print(body)
     params_df = body['action']['params']
     print(type(params_df))
+
+    print("-"*30)
     opt_operator = params_df['operators']
+    print("operators:", opt_operator)
+    print("-"*30)
     number01 = json.loads(params_df['sys_number01'])['amount']
     number02 = json.loads(params_df['sys_number02'])['amount']
 
