@@ -185,8 +185,10 @@ def naver_sites_text():
   for one in titles:
     if one.string != None:
       places_title.append(one.string)
-  MainNewsText01 = places_title[:1]
-  MainNewsText02 = places_title[1:2]
+  for i in places_title[:1]:
+    MainNewsText01 = i
+  for i in places_title[1:2]:
+    MainNewsText02 = i
 naver_sites_text()
 
 # 네이버 주요뉴스 URL 가져오기
@@ -201,8 +203,10 @@ def naver_sites_url():
 
   for i in titles:
     places_url.append("https://land.naver.com"+i.attrs["href"])
-  MainNewsUrl01 = places_url[:1]
-  MainNewsUrl02 = places_url[1:2]
+  for i in places_url[:1]:
+    MainNewsUrl01 = i
+  for i in places_url[1:2]:
+    MainNewsUrl02 = i
 naver_sites_url()
 
 # 네이버 주요뉴스 이미지 가져오기
