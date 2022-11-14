@@ -487,3 +487,50 @@ def sayDae_gu():
 }
 
     return responseDae_gu
+
+# 울산 스킬
+@app.route('/api/sayUlsan', methods=['POST'])
+def sayUlsan():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseUlsan = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "대구 뉴스"
+          },
+          "items": [
+            {
+              "title": "LH, 울산다운2지구 신혼희망타운 공급",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/018/2022/08/17/5294008.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=018&arti_id=0005294008"
+              }
+            },
+            {
+              "title": "울산시, '미이전 시유재산 찾기' 전개…첫해 1천196억 발굴",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/04/15/13116935.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013116935"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseUlsan
