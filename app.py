@@ -346,3 +346,50 @@ def sayIncheon():
 }
 
     return responseIncheon
+
+# 부산 스킬
+@app.route('/api/sayBusan', methods=['POST'])
+def sayBusan():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseBusan = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "부산 뉴스"
+          },
+          "items": [
+            {
+              "title": "부산 조정지역 어디 해제될까…북·사하구 모든 요건 충족",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/658/2022/09/09/19720.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=658&arti_id=0000019720"
+              }
+            },
+            {
+              "title": "부산 아파트 매매가 10년 1개월 만에 최대폭 하락",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/08/31/4891554.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004891554"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseBusan
