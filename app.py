@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import pandas as pd 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 from sqlalchemy.sql import text 
 import json
+from selenium import webdrive
+from flask_cors import CORS, cross_origin
+from bs4 import BeautifulSoup
+import os
 
 ## DB 연결 Local / 1회성 (반복 실행시에는 덮어쓰기가 됨)
 def db_create():
