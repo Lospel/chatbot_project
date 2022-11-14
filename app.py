@@ -1,27 +1,57 @@
 # -*- coding: utf-8 -*-
-
 from flask import Flask, request
+import pandas as pd 
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+from sqlalchemy.sql import text 
 import json
 
-app = Flask(__name__)
+## DB 연결 Local
+def db_create():
+    # 로컬
+	# engine = create_engine("postgresql://postgres:1234@localhost:5432/chatbot", echo = False)
+		
+	# Heroku
+    engine = create_engine("postgresql://shkegbfeivphah:183a9a9bcd13ff5522b75d240cca5335d21d0f905c1a181d15eddb6f24d39915@ec2-44-209-57-4.compute-1.amazonaws.com:5432/d4oja7hb5806v7", echo = False)
 
-@app.route("/")
+    engine.connect()
+    engine.execute("""
+        CREATE TABLE IF NOT EXISTS iris(
+            sepal_length FLOAT NOT NULL,
+            sepal_width FLOAT NOT NULL,
+            pepal_length FLOAT NOT NULL,
+            pepal_width FLOAT NOT NULL,
+            species VARCHAR(100) NOT NULL
+        );"""
+    )
+    data = pd.read_csv('data/iris.csv')
+    print(data)
+    data.to_sql(name='iris', con=engine, schema = 'public', if_exists='replace', index=False)
+
+## 메인 로직!! 
+def cals(opt_operator, number01, number02):
+    if opt_operator == "addition":
+        return number01 + number02
+    elif opt_operator == "subtraction": 
+        return number01 - number02
+    elif opt_operator == "multiplication":
+        return number01 * number02
+    elif opt_operator == "division":
+        return number01 / number02
+
+application = Flask(__name__)
+
+@application.route("/")
 def index():
-    return "Hello World!"
-
-# 1단계 : 코드 수정
-# 2단계 : 스킬 등록 (URI)
-# 3단계 : 시나리오 등록한 스킬 호출
-# 4단계 : 배포
+    db_create()
+    return "DB Created Done !!!!!!!!!!!!!!!"
 
 ## 카카오톡 텍스트형 응답
-@app.route('/api/sayHello', methods=['POST'])
+@application.route('/api/sayHello', methods=['POST'])
 def sayHello():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
 
-    # simple text 작성 양식
     responseBody = {
         "version": "2.0",
         "template": {
@@ -37,14 +67,14 @@ def sayHello():
 
     return responseBody
 
+
 ## 카카오톡 이미지형 응답
-@app.route('/api/showHello', methods=['POST'])
+@application.route('/api/showHello', methods=['POST'])
 def showHello():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
 
-    # 이미지형 응답 양식
     responseBody = {
         "version": "2.0",
         "template": {
@@ -61,29 +91,18 @@ def showHello():
 
     return responseBody
 
-## 메인 로직!! 
-def cals(opt_operator, number01, number02):
-    if opt_operator == "addition":
-        return number01 + number02
-    elif opt_operator == "subtraction": 
-        return number01 - number02
-    elif opt_operator == "multiplication":
-        return number01 * number02
-    elif opt_operator == "division":
-        return number01 / number02
-
-    ## 카카오톡 Calculator 계산기 응답
-@app.route('/api/calCulator', methods=['POST'])
+## 카카오톡 Calculator 계산기 응답
+@application.route('/api/calCulator', methods=['POST'])
 def calCulator():
     body = request.get_json()
     print(body)
     params_df = body['action']['params']
     print(type(params_df))
 
-    print("-"*30)
+    print('-----')
     opt_operator = params_df['operators']
-    print("operators:", opt_operator)
-    print("-"*30)
+    print('operator:', opt_operator)
+    print('-----')
     number01 = json.loads(params_df['sys_number01'])['amount']
     number02 = json.loads(params_df['sys_number02'])['amount']
 
@@ -105,6 +124,47 @@ def calCulator():
     }
 
     return responseBody
+
+## Query 조회
+@application.route('/api/querySQL', methods=['POST'])
+def querySQL():
+    
+    body = request.get_json()
+    params_df = body['action']['params']
+    sepal_length_num = str(json.loads(params_df['sepal_length_num'])['amount'])
+
+    print(sepal_length_num, type(sepal_length_num))
+    query_str = f'''
+        SELECT sepal_length, species FROM iris where sepal_length >= {sepal_length_num}
+    '''
+
+    engine = create_engine("postgresql://shkegbfeivphah:183a9a9bcd13ff5522b75d240cca5335d21d0f905c1a181d15eddb6f24d39915@ec2-44-209-57-4.compute-1.amazonaws.com:5432/d4oja7hb5806v7", echo = False)
+
+    with engine.connect() as conn:
+        query = conn.execute(text(query_str))
+
+    df = pd.DataFrame(query.fetchall())
+    nrow_num = str(len(df.index))
+    answer_text = nrow_num
+
+    responseBody = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "simpleText": {
+                        "text": answer_text + "개 입니다."
+                    }
+                }
+            ]
+        }
+    }
+    return responseBody
+
+
+if __name__ == "__main__":
+    db_create()
+    application.run()
 
 ## 부동산
 
