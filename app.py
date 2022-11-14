@@ -106,6 +106,8 @@ def calCulator():
 
     return responseBody
 
+## 부동산
+
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
 def sayMainNews():
@@ -201,6 +203,8 @@ def sayHotIssue():
 
     return responseHotIssue
 
+## 지역별 뉴스
+
 # 서울 스킬
 @app.route('/api/saySeoul', methods=['POST'])
 def saySeoul():
@@ -248,3 +252,50 @@ def saySeoul():
 }
 
     return responseSeoul
+
+# 경기 스킬
+@app.route('/api/sayGyeonggi', methods=['POST'])
+def sayGyeonggi():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseGyeonggi = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "경기도 뉴스"
+          },
+          "items": [
+            {
+              "title": "광명3구역, 공공재개발 후보지 선정…LH, 2126가구 건설",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/022/2022/11/09/3752280.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=022&arti_id=0003752280"
+              }
+            },
+            {
+              "title": "두 달 만에 3억 뚝…과천 전세도 무너졌다",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/11/09/4925252.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004925252"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseGyeonggi
