@@ -216,8 +216,10 @@ def naver_main_img_url():
   link_thumbnail = []
   for img in news_thumbnail:
       link_thumbnail.append(img.attrs['src'])
-  MainNewsImg01 = link_thumbnail[:1]
-  MainNewsImg02 = link_thumbnail[1:2]
+  for i in link_thumbnail[:1]:
+    MainNewsImg01 = i
+  for i in link_thumbnail[1:2]:
+    MainNewsImg02 = i
 naver_main_img_url()
 
 # 주요 뉴스 스킬
