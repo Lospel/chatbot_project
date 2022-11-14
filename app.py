@@ -628,3 +628,50 @@ def sayGwangju():
 }
 
     return responseGwangju
+
+# 강원도 스킬
+@app.route('/api/sayGangwon', methods=['POST'])
+def sayGangwon():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseGangwon = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "강원도 뉴스"
+          },
+          "items": [
+            {
+              "title": "춘천시, 동산면 원창1지구 지적재조사 마무리",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/08/25/13397432.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013397432"
+              }
+            },
+            {
+              "title": "포항~삼척 등 영남권 9개 철도사업 “올해 8060억원 투입”",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/06/20/4854304.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004854304"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseGangwon
