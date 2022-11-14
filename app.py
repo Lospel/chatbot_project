@@ -816,3 +816,50 @@ def sayGyeongbuk():
 }
 
     return responseGyeongbuk
+
+# 경남 스킬
+@app.route('/api/sayGyeongnam', methods=['POST'])
+def sayGyeongnam():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseGyeongnam = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "경상남도 뉴스"
+          },
+          "items": [
+            {
+              "title": "전북대·창원대, 캠퍼스 혁신파크 신규사업지 선정",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/119/2022/06/09/2610999.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=119&arti_id=0002610999"
+              }
+            },
+            {
+              "title": "[함양소식] '여행을 일상처럼' 함양 온데이 프로그램 운영",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/05/10/13168107.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013168107"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseGyeongnam
