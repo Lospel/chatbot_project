@@ -392,6 +392,41 @@ def naver_region_img_url(url):
     RegionImg01 = i
   for i in link_thumbnail[1:2]:
     RegionImg02 = i
+  
+# 지역별 뉴스 텍스트 가져오기
+def naver_region_text(url):
+  global RegionText01
+  global RegionText02
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("div.section_headline dt a")
+  places_title = []
+
+  for one in titles:
+    if one.string != None:
+      places_title.append(one.string)
+
+  for i in places_title[:1]:
+    RegionText01 = i
+  for i in places_title[1:2]:
+    RegionText02 = i
+
+# 지역별 뉴스 URL 가져오기
+def naver_region_url(url):
+  global RegionUrl01
+  global RegionUrl02
+
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("dt.photo a")
+  places_url=[]
+
+  for i in titles:
+    places_url.append("https://land.naver.com"+i.attrs["href"])
+  for i in places_url[:1]:
+    RegionUrl01 = i
+  for i in places_url[1:2]:
+    RegionUrl02 = i
 
 # 서울 스킬
 @app.route('/api/saySeoul', methods=['POST'])
@@ -402,6 +437,8 @@ def saySeoul():
 
     Seoul = "https://land.naver.com/news/region.naver?city_no=1100000000&dvsn_no="
     naver_region_img_url(Seoul)
+    naver_region_text(Seoul)
+    naver_region_url(Seoul)
 
     # simple text 작성 양식
     responseSeoul = {
@@ -415,17 +452,17 @@ def saySeoul():
           },
           "items": [
             {
-              "title": "경매도 전세도 급급매도 '싸늘'…'26억' 목동 아파트도 16억으로 10억 '뚝'",
+              "title": f"{RegionText01}",
               "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006446031"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "준공 30년 넘은 노후 아파트 비중 영등포 1위…도봉·송파 순",
+              "title": f"{RegionText02}",
               "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0011526383"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
