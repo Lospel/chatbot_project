@@ -8,6 +8,8 @@ from selenium import webdrive
 from flask_cors import CORS, cross_origin
 from bs4 import BeautifulSoup
 import os
+import requests
+
 
 ## DB 연결 Local / 1회성 (반복 실행시에는 덮어쓰기가 됨)
 def db_create():
@@ -41,6 +43,8 @@ def cals(opt_operator, number01, number02):
         return number01 * number02
     elif opt_operator == "division":
         return number01 / number02
+
+
 
 app = Flask(__name__)
 
@@ -172,6 +176,22 @@ if __name__ == "__main__":
 
 ## 부동산
 
+def naver_sites_text():
+  global MainNewsText01
+  global MainNewsText02
+  url = "https://land.naver.com/news/headline.naver"
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("ul.headline_list dt a")
+  places_title = []
+
+  for one in titles:
+    if one.string != None:
+      places_title.append(one.string)
+  MainNewsText01 = places_title[:1]
+  MainNewsText02 = places_title[1:2]
+naver_sites_text()
+
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
 def sayMainNews():
@@ -190,14 +210,14 @@ def sayMainNews():
           },
           "items": [
             {
-              "title": "서울 해제여부, 주변지역 효과 지켜본 후 판단",
+              "title": MainNewsText01,
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/008/2022/11/11/4816714.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=008&arti_id=0004816714"
               }
             },
             {
-              "title": "연봉 1억 직장인, 16억 집살때 내달부터 7억 대출 가능",
+              "title": MainNewsText02,
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/11/11/3461618.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=020&arti_id=0003461618"
