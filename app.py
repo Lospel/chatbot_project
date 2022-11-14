@@ -910,3 +910,50 @@ def sayJeonbuk():
 }
 
     return responseJeonbuk
+
+# 전남 스킬
+@app.route('/api/sayJeonnam', methods=['POST'])
+def sayJeonnam():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseJeonnam = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "전라남도 뉴스"
+          },
+          "items": [
+            {
+              "title": "광양시 '도로건설 관리계획·농어촌도로 기본계획' 용역 착수",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/09/15/6335513.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006335513"
+              }
+            },
+            {
+              "title": "전남 신안에 마리나단지, 충남 예산에 청년외식창업거리 조성된다",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/08/01/3443254.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=020&arti_id=0003443254"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseJeonnam
