@@ -378,12 +378,30 @@ def sayHotIssue():
 
 ## 지역별 뉴스
 
+# 지역별 뉴스 이미지 가져오기
+def naver_region_img_url(url):
+  global RegionImg01
+  global RegionImg02
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  news_thumbnail = soup.select('dt.photo img')
+  link_thumbnail = []
+  for img in news_thumbnail:
+      link_thumbnail.append(img.attrs['src'])
+  for i in link_thumbnail[:1]:
+    RegionImg01 = i
+  for i in link_thumbnail[1:2]:
+    RegionImg02 = i
+
 # 서울 스킬
 @app.route('/api/saySeoul', methods=['POST'])
 def saySeoul():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
+
+    Seoul = "https://land.naver.com/news/region.naver?city_no=1100000000&dvsn_no="
+    naver_region_img_url(Seoul)
 
     # simple text 작성 양식
     responseSeoul = {
@@ -398,14 +416,14 @@ def saySeoul():
           "items": [
             {
               "title": "경매도 전세도 급급매도 '싸늘'…'26억' 목동 아파트도 16억으로 10억 '뚝'",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/11/09/6446031.jpg",
+              "imageUrl": f"{RegionImg01}",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006446031"
               }
             },
             {
               "title": "준공 30년 넘은 노후 아파트 비중 영등포 1위…도봉·송파 순",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/003/2022/11/09/11526383.jpg",
+              "imageUrl": f"{RegionImg02}",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0011526383"
               }
