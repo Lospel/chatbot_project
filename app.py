@@ -105,3 +105,50 @@ def calCulator():
     }
 
     return responseBody
+    
+@app.route('/api/sayMainNews', methods=['POST'])
+def sayRegion():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    # simple text 작성 양식
+    responseMain = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "주요 뉴스"
+          },
+          "items": [
+            {
+              "title": "서울 해제여부, 주변지역 효과 지켜본 후 판단",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/008/2022/11/11/4816714.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=008&arti_id=0004816714"
+              }
+            },
+            {
+              "title": "연봉 1억 직장인, 16억 집살때 내달부터 7억 대출 가능",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/11/11/3461618.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=020&arti_id=0003461618"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b35e4af8d760349365f56"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseMain
