@@ -863,3 +863,50 @@ def sayGyeongnam():
 }
 
     return responseGyeongnam
+
+# 전북 스킬
+@app.route('/api/sayJeonbuk', methods=['POST'])
+def sayJeonbuk():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseJeonbuk = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "전라북도 뉴스"
+          },
+          "items": [
+            {
+              "title": "전주시, 부동산 조정대상지역 해제 요청…'청약시장까지 위축'",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/09/16/13442383.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013442383"
+              }
+            },
+            {
+              "title": "장수군, 청년 월세 20만원 특별지원…22일부터 신청",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/08/18/6284137.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006284137"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseJeonbuk
