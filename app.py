@@ -299,3 +299,50 @@ def sayGyeonggi():
 }
 
     return responseGyeonggi
+
+# 인천 스킬
+@app.route('/api/sayIncheon', methods=['POST'])
+def sayIncheon():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseIncheon = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "인천 뉴스"
+          },
+          "items": [
+            {
+              "title": "송도 84㎡ 1년새 5억 뚝 … 은마는 20억선 무너져",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/009/2022/11/03/5039861.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=009&arti_id=0005039861"
+              }
+            },
+            {
+              "title": "더 떨어지기 전 팔자… 인천 \'단타 거래\' 전국 1위",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/011/2022/10/20/4112568.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=011&arti_id=0004112568"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseIncheon
