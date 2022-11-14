@@ -393,3 +393,50 @@ def sayBusan():
 }
 
     return responseBusan
+
+# 대전 스킬
+@app.route('/api/sayDaejeon', methods=['POST'])
+def sayDaejeon():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseDaejeon = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "부산 뉴스"
+          },
+          "items": [
+            {
+              "title": "대구시, 주택 임대차 신고 과태료 부과 1년 더 유예",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/05/04/6070807.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006070807"
+              }
+            },
+            {
+              "title": "대전시, 대덕평촌지구 지원시설용지 4필지 추가 공급",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/03/14/5967079.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0005967079"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseDaejeon
