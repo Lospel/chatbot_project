@@ -205,6 +205,21 @@ def naver_sites_url():
   MainNewsUrl02 = places_url[1:2]
 naver_sites_url()
 
+# 네이버 주요뉴스 이미지 가져오기
+def naver_main_img_url():
+  global MainNewsImg01
+  global MainNewsImg02
+  url = "https://land.naver.com/news/headline.naver"
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  news_thumbnail = soup.select('dt.photo img')
+  link_thumbnail = []
+  for img in news_thumbnail:
+      link_thumbnail.append(img.attrs['src'])
+  MainNewsImg01 = link_thumbnail[:1]
+  MainNewsImg02 = link_thumbnail[1:2]
+naver_main_img_url()
+
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
 def sayMainNews():
@@ -224,14 +239,14 @@ def sayMainNews():
           "items": [
             {
               "title": f"{MainNewsText01}",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/008/2022/11/11/4816714.jpg",
+              "imageUrl": f"{MainNewsImg01}",
               "link": {
                 "web": f"{MainNewsUrl01}"
               }
             },
             {
               "title": f"{MainNewsText02}",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/11/11/3461618.jpg",
+              "imageUrl": f"{MainNewsImg02}",
               "link": {
                 "web": f"{MainNewsUrl02}"
               }
