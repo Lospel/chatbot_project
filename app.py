@@ -203,14 +203,14 @@ def sayMainNews():
           },
           "items": [
             {
-              "title": MainNewsText01,
+              "title": f"{MainNewsText01}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/008/2022/11/11/4816714.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=008&arti_id=0004816714"
               }
             },
             {
-              "title": MainNewsText02,
+              "title": f"{MainNewsText02}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/11/11/3461618.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=020&arti_id=0003461618"
