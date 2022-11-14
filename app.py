@@ -722,3 +722,50 @@ def sayChungbuk():
 }
 
     return responseChungbuk
+
+# 충남 스킬
+@app.route('/api/sayChungnam', methods=['POST'])
+def sayChungnam():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseChungnam = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "충청남도 뉴스"
+          },
+          "items": [
+            {
+              "title": "보령시, 청년 주택자금 대출이자 지원…연간 최대 300만원",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/01/10/12908692.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012908692"
+              }
+            },
+            {
+              "title": "11년 만에 완공…내달 1일 국내 최장 바닷길 보령해저터널 개통",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2021/11/26/1917368.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0001917368"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseChungnam
