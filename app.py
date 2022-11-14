@@ -408,7 +408,7 @@ def sayDaejeon():
       {
         "listCard": {
           "header": {
-            "title": "부산 뉴스"
+            "title": "대전 뉴스"
           },
           "items": [
             {
