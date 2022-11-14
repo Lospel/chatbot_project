@@ -200,3 +200,51 @@ def sayHotIssue():
 }
 
     return responseHotIssue
+
+# 서울 스킬
+@app.route('/api/saySeoul', methods=['POST'])
+def saySeoul():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    # simple text 작성 양식
+    responseSeoul = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "서울특별시 뉴스"
+          },
+          "items": [
+            {
+              "title": "경매도 전세도 급급매도 '싸늘'…'26억' 목동 아파트도 16억으로 10억 '뚝'",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/11/09/6446031.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006446031"
+              }
+            },
+            {
+              "title": "준공 30년 넘은 노후 아파트 비중 영등포 1위…도봉·송파 순",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/003/2022/11/09/11526383.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0011526383"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseSeoul
