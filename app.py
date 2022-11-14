@@ -105,14 +105,14 @@ def calCulator():
     }
 
     return responseBody
-    
+
+# 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
-def sayRegion():
+def sayMainNews():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
 
-    # simple text 작성 양식
     responseMain = {
   "version": "2.0",
   "template": {
@@ -152,3 +152,51 @@ def sayRegion():
 }
 
     return responseMain
+
+# 핫이슈 스킬
+@app.route('/api/sayHotIssue', methods=['POST'])
+def sayHotIssue():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    # simple text 작성 양식
+    responseHotIssue = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "핫이슈"
+          },
+          "items": [
+            {
+              "title": "규제 풀린 지방, 11월 4만 가구 분...",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/277/2022/11/11/5175821.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102392&prsco_id=277&arti_id=0005175821"
+              }
+            },
+            {
+              "title": "[2022 국감] '스카이72' 수상한 지...",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/119/2022/10/19/2649398.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102372&prsco_id=119&arti_id=0002649398"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b35e4af8d760349365f56"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseHotIssue
