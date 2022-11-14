@@ -675,3 +675,50 @@ def sayGangwon():
 }
 
     return responseGangwon
+
+# 충북 스킬
+@app.route('/api/sayChungbuk', methods=['POST'])
+def sayChungbuk():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseChungbuk = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "충청북도 뉴스"
+          },
+          "items": [
+            {
+              "title": "청주시 등 전국 곳곳 규제지역 해제 요구",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/417/2022/04/25/807097.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=417&arti_id=0000807097"
+              }
+            },
+            {
+              "title": "사라진 단양-심곡 1.7㎞ 복합관광시설로 개발… 6월 20일까지 사업자 공모",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2021/12/30/1931007.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0001931007"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseChungbuk
