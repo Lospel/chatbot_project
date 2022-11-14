@@ -440,3 +440,50 @@ def sayDaejeon():
 }
 
     return responseDaejeon
+
+# 대구 스킬
+@app.route('/api/sayDae_gu', methods=['POST'])
+def sayDae_gu():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseDae_gu = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "대구 뉴스"
+          },
+          "items": [
+            {
+              "title": "대구 아파트 낙찰가율 80%선 붕괴 초읽기…저가 매수 행렬 이어질까 [심은지의 경매 인사이트]",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/015/2022/09/19/4751214.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=015&arti_id=0004751214"
+              }
+            },
+            {
+              "title": "대구 달서구 주민들, 성서행정타운 터 매각 반대(종합)",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/08/10/13366461.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013366461"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseDae_gu
