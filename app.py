@@ -581,3 +581,50 @@ def saySejong():
 }
 
     return responseSejong
+
+# 세종 스킬
+@app.route('/api/sayGwangju', methods=['POST'])
+def sayGwangju():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseGwangju = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "광주 뉴스"
+          },
+          "items": [
+            {
+              "title": "광주송정역 일대 토지거래 허가제 연장",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2022/08/25/2032686.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0002032686"
+              }
+            },
+            {
+              "title": "광주∼대구 연계 8대 프로젝트 발전계획 확정",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/003/2021/11/18/10841342.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0010841342"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseGwangju
