@@ -192,10 +192,10 @@ def naver_sites_text():
 naver_sites_text()
 
 # 네이버 주요뉴스 URL 가져오기
-def naver_sites_url():
+def naver_sites_url(url):
   global MainNewsUrl01
   global MainNewsUrl02
-  url = "https://land.naver.com/news/headline.naver"
+  
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("dt.photo a")
@@ -207,7 +207,9 @@ def naver_sites_url():
     MainNewsUrl01 = i
   for i in places_url[1:2]:
     MainNewsUrl02 = i
-naver_sites_url()
+
+url = "https://land.naver.com/news/headline.naver"
+naver_sites_url(url)
 
 # 네이버 주요뉴스 이미지 가져오기
 def naver_main_img_url():
@@ -273,6 +275,25 @@ def sayMainNews():
 
     return responseMain
 
+# 핫이슈 텍스트 가져오기
+def naver_hotissue_text():
+  global HotIssueText01
+  global HotIssueText02
+  url = "https://land.naver.com/news/hotIssue.naver"
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("div.hot_list strong")
+  places_title = []
+
+  for one in titles:
+    if one.string != None:
+      places_title.append(one.string)
+  for i in places_title[:1]:
+    HotIssueText01 = i
+  for i in places_title[1:2]:
+    HotIssueText02 = i
+naver_hotissue_text()
+
 # 핫이슈 스킬
 @app.route('/api/sayHotIssue', methods=['POST'])
 def sayHotIssue():
@@ -280,7 +301,6 @@ def sayHotIssue():
     print(body)
     print(body['userRequest']['utterance'])
 
-    # simple text 작성 양식
     responseHotIssue = {
   "version": "2.0",
   "template": {
@@ -292,14 +312,14 @@ def sayHotIssue():
           },
           "items": [
             {
-              "title": "규제 풀린 지방, 11월 4만 가구 분...",
+              "title": f"{HotIssueText01}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/277/2022/11/11/5175821.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102392&prsco_id=277&arti_id=0005175821"
               }
             },
             {
-              "title": "[2022 국감] '스카이72' 수상한 지...",
+              "title": f"{HotIssueText02}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/119/2022/10/19/2649398.jpg",
               "link": {
                 "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102372&prsco_id=119&arti_id=0002649398"
