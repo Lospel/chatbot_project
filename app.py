@@ -502,7 +502,7 @@ def sayUlsan():
       {
         "listCard": {
           "header": {
-            "title": "대구 뉴스"
+            "title": "울산 뉴스"
           },
           "items": [
             {
@@ -534,3 +534,50 @@ def sayUlsan():
 }
 
     return responseUlsan
+
+# 세종 스킬
+@app.route('/api/saySejong', methods=['POST'])
+def saySejong():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseSejong = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "세종 뉴스"
+          },
+          "items": [
+            {
+              "title": "세종시, 집값 곤두박질 치더니…'찬밥 신세 됐다' 무슨 일? [심은지의 경매 인사이트]",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/015/2022/10/30/4769071.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=015&arti_id=0004769071"
+              }
+            },
+            {
+              "title": "세종시 아파트값 우수수... 7% 이상 떨어져 ‘전국1위’",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/09/15/6334736.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006334736"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseSejong
