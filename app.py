@@ -167,8 +167,12 @@ if __name__ == "__main__":
     app.run()
 
 ## 부동산
+
+# 라이브러리 불러오기
 import requests
 from bs4 import BeautifulSoup
+
+# 네이버 주요 뉴스 텍스트 가져오기
 def naver_sites_text():
   global MainNewsText01
   global MainNewsText02
@@ -184,6 +188,22 @@ def naver_sites_text():
   MainNewsText01 = places_title[:1]
   MainNewsText02 = places_title[1:2]
 naver_sites_text()
+
+# 네이버 주요뉴스 URL 가져오기
+def naver_sites_url():
+  global MainNewsUrl01
+  global MainNewsUrl02
+  url = "https://land.naver.com/news/headline.naver"
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("dt.photo a")
+  places_url=[]
+
+  for i in titles:
+    places_url.append("https://land.naver.com"+i.attrs["href"])
+  MainNewsUrl01 = places_url[:1]
+  MainNewsUrl02 = places_url[1:2]
+naver_sites_url()
 
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
@@ -206,14 +226,14 @@ def sayMainNews():
               "title": f"{MainNewsText01}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/008/2022/11/11/4816714.jpg",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=008&arti_id=0004816714"
+                "web": f"{MainNewsUrl01}"
               }
             },
             {
               "title": f"{MainNewsText02}",
               "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/11/11/3461618.jpg",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=headline&bss_ymd=&prsco_id=020&arti_id=0003461618"
+                "web": f"{MainNewsUrl02}"
               }
             },
            ],
