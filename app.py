@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request, jsonify
+from flask import Flask, request
 import pandas as pd 
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 from sqlalchemy.sql import text 
 import json
-from selenium import webdrive
-from flask_cors import CORS, cross_origin
-from bs4 import BeautifulSoup
-import os
-import requests
-
 
 ## DB 연결 Local / 1회성 (반복 실행시에는 덮어쓰기가 됨)
 def db_create():
@@ -43,8 +37,6 @@ def cals(opt_operator, number01, number02):
         return number01 * number02
     elif opt_operator == "division":
         return number01 / number02
-
-
 
 app = Flask(__name__)
 
@@ -175,22 +167,6 @@ if __name__ == "__main__":
     app.run()
 
 ## 부동산
-
-# def naver_sites_text():
-#   global MainNewsText01
-#   global MainNewsText02
-#   url = "https://land.naver.com/news/headline.naver"
-#   response = requests.request("GET", url)
-#   soup = BeautifulSoup(response.content,'html.parser')
-#   titles = soup.select("ul.headline_list dt a")
-#   places_title = []
-
-#   for one in titles:
-#     if one.string != None:
-#       places_title.append(one.string)
-#   MainNewsText01 = places_title[:1]
-#   MainNewsText02 = places_title[1:2]
-# naver_sites_text()
 
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
