@@ -5,13 +5,13 @@ from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 from sqlalchemy.sql import text 
 import json
 
-## DB 연결 Local
+## DB 연결 Local / 1회성 (반복 실행시에는 덮어쓰기가 됨)
 def db_create():
     # 로컬
 	# engine = create_engine("postgresql://postgres:1234@localhost:5432/chatbot", echo = False)
 		
-	# Heroku
-    engine = create_engine("postgresql://shkegbfeivphah:183a9a9bcd13ff5522b75d240cca5335d21d0f905c1a181d15eddb6f24d39915@ec2-44-209-57-4.compute-1.amazonaws.com:5432/d4oja7hb5806v7", echo = False)
+	# Heroku  
+    engine = create_engine("postgresql://xxyuyjsrqkaqyz:a360ef8c197b6886cd5f0e55fcce218e4c1bcef8ee1e63028c622cf2ce368ca8@ec2-52-1-17-228.compute-1.amazonaws.com:5432/dclcju52337jbk", echo = False)
 
     engine.connect()
     engine.execute("""
