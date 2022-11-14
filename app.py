@@ -192,10 +192,11 @@ def naver_sites_text():
 naver_sites_text()
 
 # 네이버 주요뉴스 URL 가져오기
-def naver_sites_url(url):
+def naver_sites_url():
+  url = "https://land.naver.com/news/headline.naver"
   global MainNewsUrl01
   global MainNewsUrl02
-  
+
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("dt.photo a")
@@ -207,9 +208,7 @@ def naver_sites_url(url):
     MainNewsUrl01 = i
   for i in places_url[1:2]:
     MainNewsUrl02 = i
-
-url = "https://land.naver.com/news/headline.naver"
-naver_sites_url(url)
+naver_sites_url()
 
 # 네이버 주요뉴스 이미지 가져오기
 def naver_main_img_url():
@@ -294,6 +293,42 @@ def naver_hotissue_text():
     HotIssueText02 = i
 naver_hotissue_text()
 
+# 핫이슈 URL 가져오기
+def naver_hotissue_url():
+  url = "https://land.naver.com/news/hotIssue.naver"
+  global HotIssueUrl01
+  global HotIssueUrl02
+  
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  titles = soup.select("dt.photo a")
+  places_url=[]
+
+  for i in titles:
+    places_url.append("https://land.naver.com"+i.attrs["href"])
+  for i in places_url[:1]:
+    HotIssueUrl01 = i
+  for i in places_url[1:2]:
+    HotIssueUrl02 = i
+naver_hotissue_url()
+
+# 핫이슈 이미지 가져오기
+def naver_hotissue_img_url():
+  global HotIssueImg01
+  global HotIssueImg02
+  url = "https://land.naver.com/news/hotIssue.naver"
+  response = requests.request("GET", url)
+  soup = BeautifulSoup(response.content,'html.parser')
+  news_thumbnail = soup.select('dt.photo img')
+  link_thumbnail = []
+  for img in news_thumbnail:
+      link_thumbnail.append(img.attrs['src'])
+  for i in link_thumbnail[:1]:
+    HotIssueImg01 = i
+  for i in link_thumbnail[1:2]:
+    HotIssueImg02 = i
+naver_hotissue_img_url()
+
 # 핫이슈 스킬
 @app.route('/api/sayHotIssue', methods=['POST'])
 def sayHotIssue():
@@ -313,16 +348,16 @@ def sayHotIssue():
           "items": [
             {
               "title": f"{HotIssueText01}",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/277/2022/11/11/5175821.jpg",
+              "imageUrl": f"{HotIssueImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102392&prsco_id=277&arti_id=0005175821"
+                "web": f"{HotIssueUrl01}"
               }
             },
             {
               "title": f"{HotIssueText02}",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/119/2022/10/19/2649398.jpg",
+              "imageUrl": f"{HotIssueImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=issueView&isu_no=102372&prsco_id=119&arti_id=0002649398"
+                "web": f"{HotIssueUrl02}"
               }
             },
            ],
