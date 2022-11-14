@@ -957,3 +957,50 @@ def sayJeonnam():
 }
 
     return responseJeonnam
+
+# 제주 스킬
+@app.route('/api/sayJeju', methods=['POST'])
+def sayJeju():
+    body = request.get_json()
+    print(body)
+    print(body['userRequest']['utterance'])
+
+    responseJeju = {
+  "version": "2.0",
+  "template": {
+    "outputs": [
+      {
+        "listCard": {
+          "header": {
+            "title": "제주도 뉴스"
+          },
+          "items": [
+            {
+              "title": "제주도, 청·장년 근로자 주거 제공 중소기업에 월 30만원 지원",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2021/08/24/12616535.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012616535"
+              }
+            },
+            {
+              "title": "제주시, 오등봉·중부 도시공원 민간 특례사업 추진 '박차'",
+              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2021/06/11/12453413.jpg",
+              "link": {
+                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012453413"
+              }
+            },
+           ],
+          "buttons": [
+            {
+              "label": "뒤로 가기",
+              "action": "block",
+              "blockId": "636b36be0abf120ff67a4ddc"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+    return responseJeju
