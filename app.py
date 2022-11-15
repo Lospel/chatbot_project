@@ -263,7 +263,12 @@ def sayMainNews():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b35e4af8d760349365f56"
-            }
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": url
+            }         
           ]
         }
       }
@@ -366,7 +371,12 @@ def sayHotIssue():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b35e4af8d760349365f56"
-            }
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": url
+            }         
           ]
         }
       }
