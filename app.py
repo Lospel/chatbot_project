@@ -644,6 +644,11 @@ def sayDaejeon():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Daejeon = "https://land.naver.com/news/region.naver?city_no=3000000000&dvsn_no="
+    naver_region_img_url(Daejeon)
+    naver_region_text(Daejeon)
+    naver_region_url(Daejeon)
+
     responseDaejeon = {
   "version": "2.0",
   "template": {
@@ -655,17 +660,17 @@ def sayDaejeon():
           },
           "items": [
             {
-              "title": "대구시, 주택 임대차 신고 과태료 부과 1년 더 유예",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/05/04/6070807.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006070807"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "대전시, 대덕평촌지구 지원시설용지 4필지 추가 공급",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/03/14/5967079.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0005967079"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
