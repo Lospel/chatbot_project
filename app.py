@@ -956,6 +956,11 @@ def sayChungbuk():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Chungbuk = "https://land.naver.com/news/region.naver?city_no=4300000000&dvsn_no="
+    naver_region_img_url(Chungbuk)
+    naver_region_text(Chungbuk)
+    naver_region_url(Chungbuk)
+
     responseChungbuk = {
   "version": "2.0",
   "template": {
@@ -967,17 +972,17 @@ def sayChungbuk():
           },
           "items": [
             {
-              "title": "청주시 등 전국 곳곳 규제지역 해제 요구",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/417/2022/04/25/807097.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=417&arti_id=0000807097"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "사라진 단양-심곡 1.7㎞ 복합관광시설로 개발… 6월 20일까지 사업자 공모",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2021/12/30/1931007.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0001931007"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1003,6 +1008,11 @@ def sayChungnam():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Chungnam = "https://land.naver.com/news/region.naver?city_no=4400000000&dvsn_no="
+    naver_region_img_url(Chungnam)
+    naver_region_text(Chungnam)
+    naver_region_url(Chungnam)
+
     responseChungnam = {
   "version": "2.0",
   "template": {
@@ -1014,17 +1024,17 @@ def sayChungnam():
           },
           "items": [
             {
-              "title": "보령시, 청년 주택자금 대출이자 지원…연간 최대 300만원",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/01/10/12908692.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012908692"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "11년 만에 완공…내달 1일 국내 최장 바닷길 보령해저터널 개통",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2021/11/26/1917368.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0001917368"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1050,6 +1060,11 @@ def sayGyeongbuk():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Gyeongbuk = "https://land.naver.com/news/region.naver?city_no=4700000000&dvsn_no="
+    naver_region_img_url(Gyeongbuk)
+    naver_region_text(Gyeongbuk)
+    naver_region_url(Gyeongbuk)
+
     responseGyeongbuk = {
   "version": "2.0",
   "template": {
@@ -1061,17 +1076,17 @@ def sayGyeongbuk():
           },
           "items": [
             {
-              "title": "포항~삼척 등 영남권 9개 철도사업 “올해 8060억원 투입”",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/06/20/4854304.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004854304"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "국토부, 경주·의성·장수에 '고령자복지주택' 공급",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/003/2022/06/07/11232199.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0011232199"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1097,6 +1112,11 @@ def sayGyeongnam():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Gyeongnam = "https://land.naver.com/news/region.naver?city_no=4800000000&dvsn_no="
+    naver_region_img_url(Gyeongnam)
+    naver_region_text(Gyeongnam)
+    naver_region_url(Gyeongnam)
+
     responseGyeongnam = {
   "version": "2.0",
   "template": {
@@ -1108,17 +1128,17 @@ def sayGyeongnam():
           },
           "items": [
             {
-              "title": "전북대·창원대, 캠퍼스 혁신파크 신규사업지 선정",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/119/2022/06/09/2610999.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=119&arti_id=0002610999"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "[함양소식] '여행을 일상처럼' 함양 온데이 프로그램 운영",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/05/10/13168107.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013168107"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1144,6 +1164,11 @@ def sayJeonbuk():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Jeonbuk = "https://land.naver.com/news/region.naver?city_no=4500000000&dvsn_no="
+    naver_region_img_url(Jeonbuk)
+    naver_region_text(Jeonbuk)
+    naver_region_url(Jeonbuk)
+
     responseJeonbuk = {
   "version": "2.0",
   "template": {
@@ -1155,17 +1180,17 @@ def sayJeonbuk():
           },
           "items": [
             {
-              "title": "전주시, 부동산 조정대상지역 해제 요청…'청약시장까지 위축'",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/09/16/13442383.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013442383"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "장수군, 청년 월세 20만원 특별지원…22일부터 신청",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/08/18/6284137.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006284137"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1191,6 +1216,11 @@ def sayJeonnam():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Jeonnam = "https://land.naver.com/news/region.naver?city_no=4600000000&dvsn_no="
+    naver_region_img_url(Jeonnam)
+    naver_region_text(Jeonnam)
+    naver_region_url(Jeonnam)
+
     responseJeonnam = {
   "version": "2.0",
   "template": {
@@ -1202,17 +1232,17 @@ def sayJeonnam():
           },
           "items": [
             {
-              "title": "광양시 '도로건설 관리계획·농어촌도로 기본계획' 용역 착수",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/09/15/6335513.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006335513"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "전남 신안에 마리나단지, 충남 예산에 청년외식창업거리 조성된다",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/020/2022/08/01/3443254.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=020&arti_id=0003443254"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -1238,6 +1268,11 @@ def sayJeju():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Jeju = "https://land.naver.com/news/region.naver?city_no=5000000000&dvsn_no="
+    naver_region_img_url(Jeju)
+    naver_region_text(Jeju)
+    naver_region_url(Jeju)
+
     responseJeju = {
   "version": "2.0",
   "template": {
@@ -1249,17 +1284,17 @@ def sayJeju():
           },
           "items": [
             {
-              "title": "제주도, 청·장년 근로자 주거 제공 중소기업에 월 30만원 지원",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2021/08/24/12616535.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012616535"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "제주시, 오등봉·중부 도시공원 민간 특례사업 추진 '박차'",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2021/06/11/12453413.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0012453413"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
