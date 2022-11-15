@@ -476,9 +476,8 @@ def saySeoul():
           "buttons": [
             {
               "label": "더보기",
-              "link": {
-                "web": f"{Seoul}"
-              }
+              "action": "webLink",
+              "webLinkUrl": Seoul
             }
           ]
         }
