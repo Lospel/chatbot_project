@@ -528,6 +528,11 @@ def sayGyeonggi():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Gyeonggi
             }
           ]
         }
@@ -580,6 +585,11 @@ def sayIncheon():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Incheon
             }
           ]
         }
@@ -632,6 +642,11 @@ def sayBusan():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Busan
             }
           ]
         }
@@ -684,6 +699,11 @@ def sayDaejeon():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Daejeon
             }
           ]
         }
@@ -736,6 +756,11 @@ def sayDae_gu():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Dae_gu
             }
           ]
         }
@@ -788,6 +813,11 @@ def sayUlsan():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Ulsan
             }
           ]
         }
@@ -840,6 +870,11 @@ def saySejong():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Sejong
             }
           ]
         }
@@ -892,6 +927,11 @@ def sayGwangju():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Gwangju
             }
           ]
         }
@@ -944,6 +984,11 @@ def sayGangwon():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Gangwon
             }
           ]
         }
@@ -996,6 +1041,11 @@ def sayChungbuk():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Chungbuk
             }
           ]
         }
@@ -1048,6 +1098,11 @@ def sayChungnam():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Chungnam
             }
           ]
         }
@@ -1100,6 +1155,11 @@ def sayGyeongbuk():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Gyeongbuk
             }
           ]
         }
@@ -1152,6 +1212,11 @@ def sayGyeongnam():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Gyeongnam
             }
           ]
         }
@@ -1204,6 +1269,11 @@ def sayJeonbuk():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Jeonbuk
             }
           ]
         }
@@ -1256,6 +1326,11 @@ def sayJeonnam():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Jeonnam
             }
           ]
         }
@@ -1308,6 +1383,11 @@ def sayJeju():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
+            },
+            {
+              "label": "더보기",
+              "action": "webLink",
+              "webLinkUrl": Jeju
             }
           ]
         }
