@@ -471,9 +471,7 @@ def saySeoul():
               "label": "뒤로 가기",
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
-            }
-          ],
-          "buttons": [
+            },
             {
               "label": "더보기",
               "action": "webLink",
