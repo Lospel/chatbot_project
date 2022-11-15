@@ -540,6 +540,11 @@ def sayIncheon():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Incheon = "https://land.naver.com/news/region.naver?city_no=2800000000&dvsn_no="
+    naver_region_img_url(Incheon)
+    naver_region_text(Incheon)
+    naver_region_url(Incheon)
+
     responseIncheon = {
   "version": "2.0",
   "template": {
@@ -551,17 +556,17 @@ def sayIncheon():
           },
           "items": [
             {
-              "title": "송도 84㎡ 1년새 5억 뚝 … 은마는 20억선 무너져",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/009/2022/11/03/5039861.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=009&arti_id=0005039861"
+                "web": f"{RegionUrl01}"    
               }
             },
             {
-              "title": "더 떨어지기 전 팔자… 인천 \'단타 거래\' 전국 1위",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/011/2022/10/20/4112568.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=011&arti_id=0004112568"
+                "web": f"{RegionUrl02}",
               }
             },
            ],
