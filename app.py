@@ -514,7 +514,7 @@ def sayGyeonggi():
               "title": f"{RegionText02}",
               "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": f"{RegionUrl02}",
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -566,7 +566,7 @@ def sayIncheon():
               "title": f"{RegionText02}",
               "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": f"{RegionUrl02}",
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -592,6 +592,11 @@ def sayBusan():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Busan = "https://land.naver.com/news/region.naver?city_no=2600000000&dvsn_no="
+    naver_region_img_url(Busan)
+    naver_region_text(Busan)
+    naver_region_url(Busan)
+
     responseBusan = {
   "version": "2.0",
   "template": {
@@ -603,17 +608,17 @@ def sayBusan():
           },
           "items": [
             {
-              "title": "부산 조정지역 어디 해제될까…북·사하구 모든 요건 충족",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/658/2022/09/09/19720.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=658&arti_id=0000019720"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "부산 아파트 매매가 10년 1개월 만에 최대폭 하락",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/08/31/4891554.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004891554"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
