@@ -274,10 +274,9 @@ def sayMainNews():
     return responseMain
 
 # 핫이슈 텍스트 가져오기
-def naver_hotissue_text():
+def naver_hotissue_text(url):
   global HotIssueText01
   global HotIssueText02
-  url = "https://land.naver.com/news/hotIssue.naver"
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("div.hot_list strong")
@@ -290,11 +289,10 @@ def naver_hotissue_text():
     HotIssueText01 = i
   for i in places_title[1:2]:
     HotIssueText02 = i
-naver_hotissue_text()
+
 
 # 핫이슈 URL 가져오기
-def naver_hotissue_url():
-  url = "https://land.naver.com/news/hotIssue.naver"
+def naver_hotissue_url(url):
   global HotIssueUrl01
   global HotIssueUrl02
   
@@ -309,13 +307,12 @@ def naver_hotissue_url():
     HotIssueUrl01 = i
   for i in places_url[1:2]:
     HotIssueUrl02 = i
-naver_hotissue_url()
-
+    
 # 핫이슈 이미지 가져오기
-def naver_hotissue_img_url():
+def naver_hotissue_img_url(url):
   global HotIssueImg01
   global HotIssueImg02
-  url = "https://land.naver.com/news/hotIssue.naver"
+
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   news_thumbnail = soup.select('dt.photo img')
@@ -326,7 +323,6 @@ def naver_hotissue_img_url():
     HotIssueImg01 = i
   for i in link_thumbnail[1:2]:
     HotIssueImg02 = i
-naver_hotissue_img_url()
 
 # 핫이슈 스킬
 @app.route('/api/sayHotIssue', methods=['POST'])
@@ -334,6 +330,11 @@ def sayHotIssue():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
+
+    url = "https://land.naver.com/news/hotIssue.naver"
+    naver_hotissue_text(url)
+    naver_hotissue_url(url)
+    naver_hotissue_img_url(url)
 
     responseHotIssue = {
   "version": "2.0",
@@ -487,6 +488,11 @@ def sayGyeonggi():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Gyeonggi = "https://land.naver.com/news/region.naver?city_no=4100000000&dvsn_no="
+    naver_region_img_url(Gyeonggi)
+    naver_region_text(Gyeonggi)
+    naver_region_url(Gyeonggi)
+
     responseGyeonggi = {
   "version": "2.0",
   "template": {
@@ -498,17 +504,17 @@ def sayGyeonggi():
           },
           "items": [
             {
-              "title": "광명3구역, 공공재개발 후보지 선정…LH, 2126가구 건설",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/022/2022/11/09/3752280.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=022&arti_id=0003752280"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "두 달 만에 3억 뚝…과천 전세도 무너졌다",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/11/09/4925252.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004925252"
+                "web": f"{RegionUrl02}",
               }
             },
            ],
