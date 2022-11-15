@@ -173,10 +173,9 @@ import requests
 from bs4 import BeautifulSoup
 
 # 네이버 주요 뉴스 텍스트 가져오기
-def naver_sites_text():
+def naver_sites_text(url):
   global MainNewsText01
   global MainNewsText02
-  url = "https://land.naver.com/news/headline.naver"
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("ul.headline_list dt a")
@@ -189,11 +188,9 @@ def naver_sites_text():
     MainNewsText01 = i
   for i in places_title[1:2]:
     MainNewsText02 = i
-naver_sites_text()
 
 # 네이버 주요뉴스 URL 가져오기
-def naver_sites_url():
-  url = "https://land.naver.com/news/headline.naver"
+def naver_sites_url(url):
   global MainNewsUrl01
   global MainNewsUrl02
 
@@ -208,13 +205,11 @@ def naver_sites_url():
     MainNewsUrl01 = i
   for i in places_url[1:2]:
     MainNewsUrl02 = i
-naver_sites_url()
 
 # 네이버 주요뉴스 이미지 가져오기
-def naver_main_img_url():
+def naver_main_img_url(url):
   global MainNewsImg01
-  global MainNewsImg02
-  url = "https://land.naver.com/news/headline.naver"
+  global MainNewsImg02  
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   news_thumbnail = soup.select('dt.photo img')
@@ -225,7 +220,6 @@ def naver_main_img_url():
     MainNewsImg01 = i
   for i in link_thumbnail[1:2]:
     MainNewsImg02 = i
-naver_main_img_url()
 
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
@@ -233,6 +227,11 @@ def sayMainNews():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
+
+    url = "https://land.naver.com/news/headline.naver"
+    naver_sites_text(url)
+    naver_sites_url(url)
+    naver_main_img_url(url)
 
     responseMain = {
   "version": "2.0",
