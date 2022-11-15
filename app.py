@@ -472,6 +472,14 @@ def saySeoul():
               "action": "block",
               "blockId": "636b36be0abf120ff67a4ddc"
             }
+          ],
+          "buttons": [
+            {
+              "label": "더보기",
+              "link": {
+                "web": f"{Seoul}"
+              }
+            }
           ]
         }
       }

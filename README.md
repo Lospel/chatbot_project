@@ -2,7 +2,7 @@
 
 **ChatBot Project**
 + 2022.11.04 ~
-+ 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode
++ 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku
 + 팀원 : 3명
 + To Do List 
     - 22.11.04 금요일
