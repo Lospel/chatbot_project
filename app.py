@@ -696,6 +696,11 @@ def sayDae_gu():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Dae_gu = "https://land.naver.com/news/region.naver?city_no=2700000000&dvsn_no="
+    naver_region_img_url(Dae_gu)
+    naver_region_text(Dae_gu)
+    naver_region_url(Dae_gu)
+
     responseDae_gu = {
   "version": "2.0",
   "template": {
@@ -707,17 +712,17 @@ def sayDae_gu():
           },
           "items": [
             {
-              "title": "대구 아파트 낙찰가율 80%선 붕괴 초읽기…저가 매수 행렬 이어질까 [심은지의 경매 인사이트]",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/015/2022/09/19/4751214.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=015&arti_id=0004751214"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "대구 달서구 주민들, 성서행정타운 터 매각 반대(종합)",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/08/10/13366461.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013366461"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -743,6 +748,11 @@ def sayUlsan():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Ulsan = "https://land.naver.com/news/region.naver?city_no=3100000000&dvsn_no="
+    naver_region_img_url(Ulsan)
+    naver_region_text(Ulsan)
+    naver_region_url(Ulsan)
+
     responseUlsan = {
   "version": "2.0",
   "template": {
@@ -754,17 +764,17 @@ def sayUlsan():
           },
           "items": [
             {
-              "title": "LH, 울산다운2지구 신혼희망타운 공급",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/018/2022/08/17/5294008.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=018&arti_id=0005294008"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "울산시, '미이전 시유재산 찾기' 전개…첫해 1천196억 발굴",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/04/15/13116935.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013116935"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -790,6 +800,11 @@ def saySejong():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Sejong = "https://land.naver.com/news/region.naver?city_no=3600000000&dvsn_no="
+    naver_region_img_url(Sejong)
+    naver_region_text(Sejong)
+    naver_region_url(Sejong)
+
     responseSejong = {
   "version": "2.0",
   "template": {
@@ -801,17 +816,17 @@ def saySejong():
           },
           "items": [
             {
-              "title": "세종시, 집값 곤두박질 치더니…'찬밥 신세 됐다' 무슨 일? [심은지의 경매 인사이트]",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/015/2022/10/30/4769071.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=015&arti_id=0004769071"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "세종시 아파트값 우수수... 7% 이상 떨어져 ‘전국1위’",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/421/2022/09/15/6334736.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=421&arti_id=0006334736"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -830,12 +845,17 @@ def saySejong():
 
     return responseSejong
 
-# 세종 스킬
+# 광주 스킬
 @app.route('/api/sayGwangju', methods=['POST'])
 def sayGwangju():
     body = request.get_json()
     print(body)
     print(body['userRequest']['utterance'])
+
+    Gwangju = "https://land.naver.com/news/region.naver?city_no=2900000000&dvsn_no="
+    naver_region_img_url(Gwangju)
+    naver_region_text(Gwangju)
+    naver_region_url(Gwangju)
 
     responseGwangju = {
   "version": "2.0",
@@ -848,17 +868,17 @@ def sayGwangju():
           },
           "items": [
             {
-              "title": "광주송정역 일대 토지거래 허가제 연장",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/016/2022/08/25/2032686.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=016&arti_id=0002032686"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "광주∼대구 연계 8대 프로젝트 발전계획 확정",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/003/2021/11/18/10841342.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=003&arti_id=0010841342"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
@@ -884,6 +904,11 @@ def sayGangwon():
     print(body)
     print(body['userRequest']['utterance'])
 
+    Gangwon = "https://land.naver.com/news/region.naver?city_no=4200000000&dvsn_no="
+    naver_region_img_url(Gangwon)
+    naver_region_text(Gangwon)
+    naver_region_url(Gangwon)
+
     responseGangwon = {
   "version": "2.0",
   "template": {
@@ -895,17 +920,17 @@ def sayGangwon():
           },
           "items": [
             {
-              "title": "춘천시, 동산면 원창1지구 지적재조사 마무리",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/001/2022/08/25/13397432.jpg",
+              "title": f"{RegionText01}",
+              "imageUrl": f"{RegionImg01}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=001&arti_id=0013397432"
+                "web": f"{RegionUrl01}"
               }
             },
             {
-              "title": "포항~삼척 등 영남권 9개 철도사업 “올해 8060억원 투입”",
-              "imageUrl": "https://s.pstatic.net/imgnews/image/thumb100/014/2022/06/20/4854304.jpg",
+              "title": f"{RegionText02}",
+              "imageUrl": f"{RegionImg02}",
               "link": {
-                "web": "https://land.naver.com/news/newsRead.naver?type=region&prsco_id=014&arti_id=0004854304"
+                "web": f"{RegionUrl02}"
               }
             },
            ],
