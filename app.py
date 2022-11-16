@@ -178,7 +178,7 @@ def naver_sites_text(url):
   global MainNewsText02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("ul.headline_list dt a")
+  titles = soup.select("ul.headline_list dt a")[:2]
   places_title = []
 
   for one in titles:
@@ -196,7 +196,7 @@ def naver_sites_url(url):
 
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("dt.photo a")
+  titles = soup.select("dt.photo a")[:2]
   places_url=[]
 
   for i in titles:
@@ -212,7 +212,7 @@ def naver_main_img_url(url):
   global MainNewsImg02  
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  news_thumbnail = soup.select('dt.photo img')
+  news_thumbnail = soup.select('dt.photo img')[:2]
   link_thumbnail = []
   for img in news_thumbnail:
       link_thumbnail.append(img.attrs['src'])
