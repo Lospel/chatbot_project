@@ -181,7 +181,7 @@ def naver_sites_text(url):
   titles = soup.select("ul.headline_list dt a")
   places_title = []
 
-  for one in titles:
+  for one in titles[:2]:
     if one.string != None:
       places_title.append(one.string)
   for i in places_title[:1]:
@@ -199,7 +199,7 @@ def naver_sites_url(url):
   titles = soup.select("dt.photo a")
   places_url=[]
 
-  for i in titles:
+  for i in titles[:2]:
     places_url.append("https://land.naver.com"+i.attrs["href"])
   for i in places_url[:1]:
     MainNewsUrl01 = i
@@ -214,7 +214,7 @@ def naver_main_img_url(url):
   soup = BeautifulSoup(response.content,'html.parser')
   news_thumbnail = soup.select('dt.photo img')
   link_thumbnail = []
-  for img in news_thumbnail:
+  for img in news_thumbnail[:2]:
       link_thumbnail.append(img.attrs['src'])
   for i in link_thumbnail[:1]:
     MainNewsImg01 = i
