@@ -172,55 +172,6 @@ def index():
 import requests
 from bs4 import BeautifulSoup
 
-# # 네이버 주요 뉴스 텍스트 가져오기
-# def naver_sites_text(url):
-#   global MainNewsText01
-#   global MainNewsText02
-#   response = requests.request("GET", url)
-#   soup = BeautifulSoup(response.content,'html.parser')
-#   titles = soup.select("ul.headline_list dt a")[:4]
-#   places_title = []
-
-#   for one in titles:
-#     if one.string != None:
-#       places_title.append(one.string)
-#   for i in places_title[:1]:
-#     MainNewsText01 = i
-#   for i in places_title[1:2]:
-#     MainNewsText02 = i
-
-# # 네이버 주요뉴스 URL 가져오기
-# def naver_sites_url(url):
-#   global MainNewsUrl01
-#   global MainNewsUrl02
-
-#   response = requests.request("GET", url)
-#   soup = BeautifulSoup(response.content,'html.parser')
-#   titles = soup.select("dt.photo a")[:2]
-#   places_url=[]
-
-#   for i in titles:
-#     places_url.append("https://land.naver.com"+i.attrs["href"])
-#   for i in places_url[:1]:
-#     MainNewsUrl01 = i
-#   for i in places_url[1:2]:
-#     MainNewsUrl02 = i
-
-# # 네이버 주요뉴스 이미지 가져오기
-# def naver_main_img_url(url):
-#   global MainNewsImg01
-#   global MainNewsImg02  
-#   response = requests.request("GET", url)
-#   soup = BeautifulSoup(response.content,'html.parser')
-#   news_thumbnail = soup.select('dt.photo img')[:2]
-#   link_thumbnail = []
-#   for img in news_thumbnail:
-#       link_thumbnail.append(img.attrs['src'])
-#   for i in link_thumbnail[:1]:
-#     MainNewsImg01 = i
-#   for i in link_thumbnail[1:2]:
-#     MainNewsImg02 = i
-
 # 네이버 주요 뉴스 텍스트, 이미지, URL 가져오기
 def naver_sites_all(url):
   global MainNewsText01
@@ -269,9 +220,6 @@ def sayMainNews():
 
     url = "https://land.naver.com/news/headline.naver"
     naver_sites_all(url)
-    # naver_sites_text(url)
-    # naver_sites_url(url)
-    # naver_main_img_url(url)
 
     responseMain = {
   "version": "2.0",
@@ -318,14 +266,22 @@ def sayMainNews():
 
     return responseMain
 
-# 핫이슈 텍스트 가져오기
-def naver_hotissue_text(url):
+# 핫이슈 텍스트, 이미지, URL 가져오기
+def naver_hotissue_all(url):
   global HotIssueText01
   global HotIssueText02
+  global HotIssueUrl01
+  global HotIssueUrl02
+  global HotIssueImg01
+  global HotIssueImg02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("div.hot_list strong")[:4]
+  titles2 = soup.select("dt.photo a")[:2]
+  news_thumbnail = soup.select('dt.photo img')[:2]
   places_title = []
+  places_url=[]
+  link_thumbnail = []
 
   for one in titles:
     if one.string != None:
@@ -335,35 +291,15 @@ def naver_hotissue_text(url):
   for i in places_title[1:2]:
     HotIssueText02 = i
 
-
-# 핫이슈 URL 가져오기
-def naver_hotissue_url(url):
-  global HotIssueUrl01
-  global HotIssueUrl02
-  
-  response = requests.request("GET", url)
-  soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("dt.photo a")[:2]
-  places_url=[]
-
-  for i in titles:
+  for i in titles2:
     places_url.append("https://land.naver.com"+i.attrs["href"])
   for i in places_url[:1]:
     HotIssueUrl01 = i
   for i in places_url[1:2]:
     HotIssueUrl02 = i
-    
-# 핫이슈 이미지 가져오기
-def naver_hotissue_img_url(url):
-  global HotIssueImg01
-  global HotIssueImg02
 
-  response = requests.request("GET", url)
-  soup = BeautifulSoup(response.content,'html.parser')
-  news_thumbnail = soup.select('dt.photo img')[:2]
-  link_thumbnail = []
   for img in news_thumbnail:
-      link_thumbnail.append(img.attrs['src'])
+    link_thumbnail.append(img.attrs['src'])
   for i in link_thumbnail[:1]:
     HotIssueImg01 = i
   for i in link_thumbnail[1:2]:
@@ -377,9 +313,7 @@ def sayHotIssue():
     print(body['userRequest']['utterance'])
 
     url = "https://land.naver.com/news/hotIssue.naver"
-    naver_hotissue_text(url)
-    naver_hotissue_url(url)
-    naver_hotissue_img_url(url)
+    naver_hotissue_all(url)
 
     responseHotIssue = {
   "version": "2.0",
