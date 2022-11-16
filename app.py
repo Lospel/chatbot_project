@@ -222,14 +222,13 @@ from bs4 import BeautifulSoup
 #     MainNewsImg02 = i
 
 # 네이버 주요 뉴스 텍스트, 이미지, URL 가져오기
-def naver_sites_all():
+def naver_sites_all(url):
   global MainNewsText01
   global MainNewsText02
   global MainNewsUrl01
   global MainNewsUrl02
   global MainNewsImg01
   global MainNewsImg02 
-  url = "https://land.naver.com/news/headline.naver"
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   titles = soup.select("ul.headline_list dt a")[:4]
@@ -268,8 +267,8 @@ def sayMainNews():
     print(body)
     print(body['userRequest']['utterance'])
 
-    # url = "https://land.naver.com/news/headline.naver"
-    naver_sites_all()
+    url = "https://land.naver.com/news/headline.naver"
+    naver_sites_all(url)
     # naver_sites_text(url)
     # naver_sites_url(url)
     # naver_main_img_url(url)
