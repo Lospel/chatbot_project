@@ -394,7 +394,7 @@ def naver_region_img_url(url):
   global RegionImg02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  news_thumbnail = soup.select('dt.photo img')
+  news_thumbnail = soup.select('dt.photo img')[:2]
   link_thumbnail = []
   for img in news_thumbnail:
       link_thumbnail.append(img.attrs['src'])
@@ -409,7 +409,7 @@ def naver_region_text(url):
   global RegionText02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("div.section_headline dt a")
+  titles = soup.select("div.section_headline dt a")[:4]
   places_title = []
 
   for one in titles:
@@ -428,7 +428,7 @@ def naver_region_url(url):
 
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("dt.photo a")
+  titles = soup.select("dt.photo a")[:2]
   places_url=[]
 
   for i in titles:
