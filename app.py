@@ -362,50 +362,40 @@ def sayHotIssue():
 
 ## 지역별 뉴스
 
-# 지역별 뉴스 이미지 가져오기
-def naver_region_img_url(url):
+# 지역별 뉴스 텍스트, 이미지, URL 가져오기
+def naver_region_all(url):
   global RegionImg01
   global RegionImg02
+  global RegionText01
+  global RegionText02
+  global RegionUrl01
+  global RegionUrl02
+
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
   news_thumbnail = soup.select('dt.photo img')[:2]
+  titles = soup.select("div.section_headline dt a")[:4]
+  titles2 = soup.select("dt.photo a")[:2]
+  places_url=[]  
+  places_title = []
   link_thumbnail = []
+
   for img in news_thumbnail:
       link_thumbnail.append(img.attrs['src'])
   for i in link_thumbnail[:1]:
     RegionImg01 = i
   for i in link_thumbnail[1:2]:
     RegionImg02 = i
-  
-# 지역별 뉴스 텍스트 가져오기
-def naver_region_text(url):
-  global RegionText01
-  global RegionText02
-  response = requests.request("GET", url)
-  soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("div.section_headline dt a")[:4]
-  places_title = []
 
   for one in titles:
     if one.string != None:
       places_title.append(one.string)
-
   for i in places_title[:1]:
     RegionText01 = i
   for i in places_title[1:2]:
     RegionText02 = i
 
-# 지역별 뉴스 URL 가져오기
-def naver_region_url(url):
-  global RegionUrl01
-  global RegionUrl02
-
-  response = requests.request("GET", url)
-  soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("dt.photo a")[:2]
-  places_url=[]
-
-  for i in titles:
+  for i in titles2:
     places_url.append("https://land.naver.com"+i.attrs["href"])
   for i in places_url[:1]:
     RegionUrl01 = i
@@ -420,11 +410,8 @@ def saySeoul():
     print(body['userRequest']['utterance'])
 
     Seoul = "https://land.naver.com/news/region.naver?city_no=1100000000&dvsn_no="
-    naver_region_img_url(Seoul)
-    naver_region_text(Seoul)
-    naver_region_url(Seoul)
+    naver_region_all(Seoul)
 
-    # simple text 작성 양식
     responseSeoul = {
   "version": "2.0",
   "template": {
@@ -478,9 +465,7 @@ def sayGyeonggi():
     print(body['userRequest']['utterance'])
 
     Gyeonggi = "https://land.naver.com/news/region.naver?city_no=4100000000&dvsn_no="
-    naver_region_img_url(Gyeonggi)
-    naver_region_text(Gyeonggi)
-    naver_region_url(Gyeonggi)
+    naver_region_all(Gyeonggi)
 
     responseGyeonggi = {
   "version": "2.0",
@@ -535,9 +520,7 @@ def sayIncheon():
     print(body['userRequest']['utterance'])
 
     Incheon = "https://land.naver.com/news/region.naver?city_no=2800000000&dvsn_no="
-    naver_region_img_url(Incheon)
-    naver_region_text(Incheon)
-    naver_region_url(Incheon)
+    naver_region_all(Incheon)
 
     responseIncheon = {
   "version": "2.0",
@@ -592,9 +575,7 @@ def sayBusan():
     print(body['userRequest']['utterance'])
 
     Busan = "https://land.naver.com/news/region.naver?city_no=2600000000&dvsn_no="
-    naver_region_img_url(Busan)
-    naver_region_text(Busan)
-    naver_region_url(Busan)
+    naver_region_all(Busan)
 
     responseBusan = {
   "version": "2.0",
@@ -649,9 +630,7 @@ def sayDaejeon():
     print(body['userRequest']['utterance'])
 
     Daejeon = "https://land.naver.com/news/region.naver?city_no=3000000000&dvsn_no="
-    naver_region_img_url(Daejeon)
-    naver_region_text(Daejeon)
-    naver_region_url(Daejeon)
+    naver_region_all(Daejeon)
 
     responseDaejeon = {
   "version": "2.0",
@@ -706,9 +685,7 @@ def sayDae_gu():
     print(body['userRequest']['utterance'])
 
     Dae_gu = "https://land.naver.com/news/region.naver?city_no=2700000000&dvsn_no="
-    naver_region_img_url(Dae_gu)
-    naver_region_text(Dae_gu)
-    naver_region_url(Dae_gu)
+    naver_region_all(Dae_gu)
 
     responseDae_gu = {
   "version": "2.0",
@@ -763,9 +740,7 @@ def sayUlsan():
     print(body['userRequest']['utterance'])
 
     Ulsan = "https://land.naver.com/news/region.naver?city_no=3100000000&dvsn_no="
-    naver_region_img_url(Ulsan)
-    naver_region_text(Ulsan)
-    naver_region_url(Ulsan)
+    naver_region_all(Ulsan)
 
     responseUlsan = {
   "version": "2.0",
@@ -820,9 +795,7 @@ def saySejong():
     print(body['userRequest']['utterance'])
 
     Sejong = "https://land.naver.com/news/region.naver?city_no=3600000000&dvsn_no="
-    naver_region_img_url(Sejong)
-    naver_region_text(Sejong)
-    naver_region_url(Sejong)
+    naver_region_all(Sejong)
 
     responseSejong = {
   "version": "2.0",
@@ -877,9 +850,7 @@ def sayGwangju():
     print(body['userRequest']['utterance'])
 
     Gwangju = "https://land.naver.com/news/region.naver?city_no=2900000000&dvsn_no="
-    naver_region_img_url(Gwangju)
-    naver_region_text(Gwangju)
-    naver_region_url(Gwangju)
+    naver_region_all(Gwangju)
 
     responseGwangju = {
   "version": "2.0",
@@ -934,9 +905,7 @@ def sayGangwon():
     print(body['userRequest']['utterance'])
 
     Gangwon = "https://land.naver.com/news/region.naver?city_no=4200000000&dvsn_no="
-    naver_region_img_url(Gangwon)
-    naver_region_text(Gangwon)
-    naver_region_url(Gangwon)
+    naver_region_all(Gangwon)
 
     responseGangwon = {
   "version": "2.0",
@@ -991,9 +960,7 @@ def sayChungbuk():
     print(body['userRequest']['utterance'])
 
     Chungbuk = "https://land.naver.com/news/region.naver?city_no=4300000000&dvsn_no="
-    naver_region_img_url(Chungbuk)
-    naver_region_text(Chungbuk)
-    naver_region_url(Chungbuk)
+    naver_region_all(Chungbuk)
 
     responseChungbuk = {
   "version": "2.0",
@@ -1048,9 +1015,7 @@ def sayChungnam():
     print(body['userRequest']['utterance'])
 
     Chungnam = "https://land.naver.com/news/region.naver?city_no=4400000000&dvsn_no="
-    naver_region_img_url(Chungnam)
-    naver_region_text(Chungnam)
-    naver_region_url(Chungnam)
+    naver_region_all(Chungnam)
 
     responseChungnam = {
   "version": "2.0",
@@ -1105,9 +1070,7 @@ def sayGyeongbuk():
     print(body['userRequest']['utterance'])
 
     Gyeongbuk = "https://land.naver.com/news/region.naver?city_no=4700000000&dvsn_no="
-    naver_region_img_url(Gyeongbuk)
-    naver_region_text(Gyeongbuk)
-    naver_region_url(Gyeongbuk)
+    naver_region_all(Gyeongbuk)
 
     responseGyeongbuk = {
   "version": "2.0",
@@ -1162,9 +1125,7 @@ def sayGyeongnam():
     print(body['userRequest']['utterance'])
 
     Gyeongnam = "https://land.naver.com/news/region.naver?city_no=4800000000&dvsn_no="
-    naver_region_img_url(Gyeongnam)
-    naver_region_text(Gyeongnam)
-    naver_region_url(Gyeongnam)
+    naver_region_all(Gyeongnam)
 
     responseGyeongnam = {
   "version": "2.0",
@@ -1219,9 +1180,7 @@ def sayJeonbuk():
     print(body['userRequest']['utterance'])
 
     Jeonbuk = "https://land.naver.com/news/region.naver?city_no=4500000000&dvsn_no="
-    naver_region_img_url(Jeonbuk)
-    naver_region_text(Jeonbuk)
-    naver_region_url(Jeonbuk)
+    naver_region_all(Jeonbuk)
 
     responseJeonbuk = {
   "version": "2.0",
@@ -1276,9 +1235,7 @@ def sayJeonnam():
     print(body['userRequest']['utterance'])
 
     Jeonnam = "https://land.naver.com/news/region.naver?city_no=4600000000&dvsn_no="
-    naver_region_img_url(Jeonnam)
-    naver_region_text(Jeonnam)
-    naver_region_url(Jeonnam)
+    naver_region_all(Jeonnam)
 
     responseJeonnam = {
   "version": "2.0",
@@ -1333,9 +1290,7 @@ def sayJeju():
     print(body['userRequest']['utterance'])
 
     Jeju = "https://land.naver.com/news/region.naver?city_no=5000000000&dvsn_no="
-    naver_region_img_url(Jeju)
-    naver_region_text(Jeju)
-    naver_region_url(Jeju)
+    naver_region_all(Jeju)
 
     responseJeju = {
   "version": "2.0",
