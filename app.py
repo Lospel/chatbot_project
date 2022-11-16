@@ -178,7 +178,7 @@ def naver_sites_text(url):
   global MainNewsText02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("ul.headline_list dt a")[:3]
+  titles = soup.select("ul.headline_list dt a")[:4]
   places_title = []
 
   for one in titles:
