@@ -220,6 +220,10 @@ def naver_main_img_url(url):
     MainNewsImg01 = i
   for i in link_thumbnail[1:2]:
     MainNewsImg02 = i
+a = "https://land.naver.com/news/headline.naver"
+naver_sites_text(a)
+naver_sites_url(a)
+naver_main_img_url(a)
 
 # 주요 뉴스 스킬
 @app.route('/api/sayMainNews', methods=['POST'])
@@ -228,10 +232,7 @@ def sayMainNews():
     print(body)
     print(body['userRequest']['utterance'])
 
-    url = "https://land.naver.com/news/headline.naver"
-    naver_sites_text(url)
-    naver_sites_url(url)
-    naver_main_img_url(url)
+
 
     responseMain = {
   "version": "2.0",
