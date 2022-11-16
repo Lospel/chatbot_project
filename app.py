@@ -163,7 +163,7 @@ def querySQL():
 
 # git push heroku main 실행시 실행. 그냥 heroku만 쓰면 실행 안됨
 if __name__ == "__main__":
-    db_create()
+    # db_create()
     app.run()
 
 ## 부동산
