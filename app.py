@@ -304,7 +304,7 @@ def naver_hotissue_all(url):
     HotIssueImg01 = i
   for i in link_thumbnail[1:2]:
     HotIssueImg02 = i
-# asd
+
 # 핫이슈 스킬
 @app.route('/api/sayHotIssue', methods=['POST'])
 def sayHotIssue():
