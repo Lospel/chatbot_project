@@ -22,7 +22,7 @@
     + Kim, Lee, Jung : 프로젝트 계획서 피드백 정리, 챗봇 시나리오 구상 및 작성.
     + Kim : 프로젝트 계획서 중간발표 발표. 피드백 정리. 부동산 뉴스 크롤링 코드 구상.<img src="https://user-images.githubusercontent.com/115764991/202326221-0533c815-11f6-4583-882f-3c0f0e977a8a.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202326235-7f3d7c60-cbcb-4fa2-a098-afd0efce7aab.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202326244-d74d50e3-0c94-40a9-aa35-72a8dfe2395f.png" width="100" height="100">
     + Lee : 프로젝트 계획서 수정. 챗봇 시나리오 이미지 데이터 전처리.
-    + Jung : 안심전환대출 데이터 수집 및 데이터 전처리.
+    + Jung : 안심전환대출 데이터 수집 및 데이터 전처리.<img src="https://user-images.githubusercontent.com/115764991/202377820-cdb39df2-35d0-4a10-8c95-daaebb16f2f3.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202377846-bdb41a32-6d2a-4a0b-86a3-ac6d80a62405.png" width="100" height="100">
     + Not To Do : 실시간 부동산 뉴스 크롤링 및 연동 챗봇 제작, 테이블 정의서, 데이터 전처리
 - 22.11.14 월요일
     + Kim, Lee, Jung : Heroku DB 연동을 학습. 챗봇 시나리오 추가 및 수정. 
@@ -38,10 +38,10 @@
     + Not To Do : 테이블 정의서 작성. 이미지 데이터 수정.
 - 22.11.16 수요일
     + Kim : 크롤링 속도 개선 코드 작성 및 챗봇 스킬 서버 업데이트.<img src="https://user-images.githubusercontent.com/115764991/202346008-3c3ee587-50cb-43be-9322-f52d496cbe17.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202346029-105a6a00-2ce7-4430-bd0f-92d8a38f2391.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202346037-2b549065-8bb6-47d9-afdd-c3ffe78755b2.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202346042-5a55b237-cb52-4821-913f-909803950913.png" width="100" height="100">
-    + Lee : 챗봇 이미지 데이터 전처리.
+    + Lee : 챗봇 이미지 데이터 전처리. <img src="https://user-images.githubusercontent.com/115764991/202378058-b4c1c21c-9d5c-4ae7-9f6d-7d5ae1160987.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202378066-5d74b208-22fe-4536-878c-5ad5a99b01ec.png" width="100" height="100">
     + Jung : 아파트 시세조회 DB 및 챗봇 스킬(코드) 수정. <img src="https://user-images.githubusercontent.com/115764991/202323499-f5ae6f04-b146-48f1-9454-4c0560064b18.png" width="100" height="100">, 챗봇 컨텍스트 설정. <img src="https://user-images.githubusercontent.com/115764991/202323545-e87f93b9-5235-4f80-9eb8-6c5fbadfab71.png" width="100" height="100">
     + Not To Do : 테이블 정의서 작성. 프로젝트 보고서 작성.
 - 22.11.17 목요일
     + Kim : 크롤링 코드 모바일 환경에 맞춰 코드 수정.
     + Lee : 프로젝트 보고서 작성.
-    + Jung : 테이블 정의서 작성.
+    + Jung : 테이블 정의서 작성. 요구사항정의서 수정. 시나리오 블록 수정 및 기능 추가.
