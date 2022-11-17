@@ -14,7 +14,7 @@
     + Not To Do : 데이터 전처리, 주제 변경, WBS, Flow Chart, 프로젝트 계획서.
 - 22.11.10 목요일
     + Kim, Lee, Jung : 부동산 뉴스 및 안심전환대출로 주제 선정. Heroku 연동. 기초적인 연산 챗봇 제작.
-    + Kim : 챗봇 시나리오 재구성. 챗봇 스킬(코드) 서버 초안 구축. 
+    + Kim : 챗봇 시나리오 재구성. <img src="https://user-images.githubusercontent.com/115764991/202325075-4336d3be-ff54-4133-9c2f-38a5d38d5e66.png" width="100" height="100"><img src="https://user-images.githubusercontent.com/115764991/202325089-5c2d7911-f601-4313-950d-421f6fb7e53f.png" width="100" height="100"> 챗봇 스킬(코드) 서버 초안 구축.
     + Lee : 프로젝트 계획서 작성.
     + Jung : WBS, Flow Chart 제작.
     + Not To Do : 프로젝트 계획서 중간발표 대본 제작, 데이터 전처리, 부동산 뉴스 챗봇 제작, 크롤링
