@@ -312,7 +312,7 @@ def sayHotIssue():
     print(body)
     print(body['userRequest']['utterance'])
 
-    url = "https://land.naver.com/news/field.naver"
+    url = "https://land.naver.com/news/hotIssue.naver"
     naver_hotissue_all(url)
 
     responseHotIssue = {
