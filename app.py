@@ -43,7 +43,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     # db_create()
-    return "DB Created Done !!!!!!!!!!!!!!!"
+    return "DB Created Done !!!"
 
 # ## 카카오톡 텍스트형 응답
 # @app.route('/api/sayHello', methods=['POST'])
