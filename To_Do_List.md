@@ -40,6 +40,6 @@
     + Kim : 크롤링 속도 개선 코드 작성 및 챗봇 스킬 서버 업데이트.
     + Lee : 챗봇 이미지 데이터 전처리.
     + Jung : 아파트 시세조회 DB 및 챗봇 스킬(코드) 수정 및 연동. 
-        + ![조건절_결과도출_코드](../Jung/%EC%A1%B0%EA%B1%B4%EC%A0%88_%EA%B2%B0%EA%B3%BC%EB%8F%84%EC%B6%9C_%EC%BD%94%EB%93%9C.png)
-        + ![컨텍스트_설정](../Jung/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8_%EC%84%A4%EC%A0%95.png)
+        + ![조건절_결과도출_코드](https://user-images.githubusercontent.com/115764991/202323499-f5ae6f04-b146-48f1-9454-4c0560064b18.png){: width="100" height="100"}
+        + ![컨텍스트_설정](https://user-images.githubusercontent.com/115764991/202323545-e87f93b9-5235-4f80-9eb8-6c5fbadfab71.png){: width="100" height="100"}
     + Not To Do : 테이블 정의서 작성. 프로젝트 보고서 작성.
