@@ -41,3 +41,4 @@
     + Lee : 챗봇 이미지 데이터 전처리.
     + Jung : 아파트 시세조회 DB 및 챗봇 스킬(코드) 수정. <img src="https://user-images.githubusercontent.com/115764991/202323499-f5ae6f04-b146-48f1-9454-4c0560064b18.png" width="100" height="100">, 챗봇 컨텍스트 설정. <img src="https://user-images.githubusercontent.com/115764991/202323545-e87f93b9-5235-4f80-9eb8-6c5fbadfab71.png" width="100" height="100">
     + Not To Do : 테이블 정의서 작성. 프로젝트 보고서 작성.
+- 22.11.17 목요일
