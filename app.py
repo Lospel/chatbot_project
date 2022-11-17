@@ -276,7 +276,7 @@ def naver_hotissue_all(url):
   global HotIssueImg02
   response = requests.request("GET", url)
   soup = BeautifulSoup(response.content,'html.parser')
-  titles = soup.select("div.hot_list strong")[:4]
+  titles = soup.select("div.section_headline a")[:4]
   titles2 = soup.select("dt.photo a")[:2]
   news_thumbnail = soup.select('dt.photo img')[:2]
   places_title = []
@@ -312,7 +312,7 @@ def sayHotIssue():
     print(body)
     print(body['userRequest']['utterance'])
 
-    url = "https://land.naver.com/news/hotIssue.naver"
+    url = "https://land.naver.com/news/field.naver"
     naver_hotissue_all(url)
 
     responseHotIssue = {
