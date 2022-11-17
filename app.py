@@ -347,9 +347,9 @@ def sayHotIssue():
               "blockId": "636b35e4af8d760349365f56"
             },
             {
-              "label": "더보기",
+              "label": "모바일로 보기",
               "action": "webLink",
-              "webLinkUrl": url
+              "webLinkUrl": "https://m2.land.naver.com/news/hotissue"
             }         
           ]
         }
