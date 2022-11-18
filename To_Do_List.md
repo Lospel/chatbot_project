@@ -57,7 +57,7 @@
     + Jung : 테이블 정의서 작성. 요구사항정의서 수정. 시나리오 블록 수정 및 기능 추가.
     + <img src="https://user-images.githubusercontent.com/115764991/202382216-ab769a62-56e4-46d2-bf3a-83c9f4f05ec1.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202382225-d9c8cfeb-2808-4302-bd61-ea0bbdb495fe.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202382119-ea8a32b9-3e4a-46c4-afa7-5749b68ea376.png" width="100" height="100">
 - 22.11.18 금요일
-    + Kim : 코드 수정 및 시나리오 블록 수정. 프로젝트 보고서 발표 준비. WBS 수정.
+    + Kim : 코드 및 시나리오 블록 수정. 프로젝트 보고서 발표 준비. WBS 수정. 크롤링 이미지 DB 저장 코드 작성
     + Lee : 프로젝트 보고서 작성.
     + Jung : 공공API 활용 코드 작성.
     + Next To Do : 데모 영상 촬영 예정. 유튜브 업로드 예정. 28일 오후에 발표 예정.
