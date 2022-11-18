@@ -45,3 +45,7 @@
     + Kim : 크롤링 코드 모바일 환경에 맞춰 코드 수정. <img src="https://user-images.githubusercontent.com/115764991/202379930-2e00c271-f77b-4454-aced-5f2235b0d779.png" width="100" height="100">
     + Lee : 프로젝트 보고서 작성.<img src="https://user-images.githubusercontent.com/115764991/202382250-b04e3593-1e08-4ad4-b0f8-69bfab639727.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202382261-f403742e-1be3-4827-90d1-4ee4bc78ab27.png" width="100" height="100">
     + Jung : 테이블 정의서 작성.<img src="https://user-images.githubusercontent.com/115764991/202382216-ab769a62-56e4-46d2-bf3a-83c9f4f05ec1.png" width="100" height="100"> 요구사항정의서 수정. <img src="https://user-images.githubusercontent.com/115764991/202382225-d9c8cfeb-2808-4302-bd61-ea0bbdb495fe.png" width="100" height="100"> 시나리오 블록 수정 및 기능 추가.<img src="https://user-images.githubusercontent.com/115764991/202382119-ea8a32b9-3e4a-46c4-afa7-5749b68ea376.png" width="100" height="100">
+- 22.11.18 금요일
+    + Kim : 코드 수정 및 시나리오 블록 수정.
+    + Lee : 프로젝트 보고서 작성.
+    + Jung : 공공API 활용 코드 작성.

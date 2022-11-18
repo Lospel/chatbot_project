@@ -3,4 +3,4 @@
 + 2022.11.04 ~
 + 사용툴 : Jupyter Notebook, Colab, Oracle SQL, Vscode, Heroku
 + 팀원 : Kim, Lee, Jung
-+ To_Do_List.md
++ [To_Do_List](To_Do_List.md)
