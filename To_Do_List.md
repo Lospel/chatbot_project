@@ -58,7 +58,7 @@
     + <img src="https://user-images.githubusercontent.com/115764991/202382216-ab769a62-56e4-46d2-bf3a-83c9f4f05ec1.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202382225-d9c8cfeb-2808-4302-bd61-ea0bbdb495fe.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202382119-ea8a32b9-3e4a-46c4-afa7-5749b68ea376.png" width="100" height="100">
 - 22.11.18 금요일
     + Kim : 코드 및 시나리오 블록 수정. 프로젝트 보고서 발표 준비. WBS 수정. 크롤링 이미지 DB 저장 코드 작성
-    + 
+    + <img src="https://user-images.githubusercontent.com/115764991/202638653-8d8cf6f7-6c69-403c-be0e-bd4d355c4dfb.png" width="100" height="100">
     + Lee : 프로젝트 보고서 작성.
     + <img src="https://user-images.githubusercontent.com/115764991/202636195-31208b07-98e2-4fbf-88cf-61b233fa064e.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202636197-f3add371-8df7-47ab-9ee8-c5bb82b93122.jpg" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/202636198-477ad612-d84c-44bb-ad60-3cbe66406e8d.png" width="100" height="100">
     + Jung : 공공API 활용 코드 작성 및 DB 저장.
