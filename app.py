@@ -39,7 +39,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    db_create()
+    # db_create()
     return "DB Created Done !!!"
 
 from datetime import datetime
