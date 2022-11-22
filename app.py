@@ -37,10 +37,6 @@ def db_create():
 
 app = Flask(__name__)
 
-if __name__ == "__main__":
-    db_create()
-    app.run()
-
 @app.route("/")
 def index():
     # db_create()
