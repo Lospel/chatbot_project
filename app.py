@@ -31,7 +31,11 @@ def db_create():
 #         return number01 / number02
 
 app = Flask(__name__)
-db_create()
+
+if __name__ == "__main__":
+    db_create()
+    app.run()
+
 @app.route("/")
 def index():
     # db_create()
