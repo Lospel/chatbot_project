@@ -73,3 +73,5 @@
 - 22.11.22 화요일
     + Kim : 부동산 뉴스 크롤링 코드로 txt파일을 생성 및 오라클SQL DB저장. 저장된 DB파일을 csv파일로 변환.
     + <img src="https://user-images.githubusercontent.com/115764991/203257154-66650e12-19e9-45fa-b416-2de2d3aa1632.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/115764991/203257168-85b3193c-65d4-48c6-b7fe-b5f0e32e5b23.png" width="100" height="100"> 
+    + Lee
+    + Jung
