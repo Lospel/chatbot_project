@@ -20,7 +20,7 @@ def db_create():
     img VARCHAR(255), 
     url VARCHAR(255));
     """)
-    data = pd.read_csv('data/MainNews.csv')
+    data = pd.read_csv('C:\Users\h\Desktop\human-kim-db\data\MainNews.csv')
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
 
