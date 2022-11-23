@@ -6,25 +6,25 @@ from sqlalchemy.sql import text
 import json
 
 ## DB 연결 Local
-def db_create():
-    # 로컬
-	# engine = create_engine("postgresql://postgres:1234@localhost:5432/chatbot", echo = False)
+# def db_create():
+#     # 로컬
+# 	# engine = create_engine("postgresql://postgres:1234@localhost:5432/chatbot", echo = False)
 		
-	# Heroku
-    engine = create_engine("postgres://iqnofbbojfepjv:0ade6fc6f063e65424efceadaea3b3b42ff8267b34dac02c40622cacf0dfb04c@ec2-23-21-76-219.compute-1.amazonaws.com:5432/ded2cbcqvof76m", echo = False)
+# 	# Heroku
+#     engine = create_engine("postgres://iqnofbbojfepjv:0ade6fc6f063e65424efceadaea3b3b42ff8267b34dac02c40622cacf0dfb04c@ec2-23-21-76-219.compute-1.amazonaws.com:5432/ded2cbcqvof76m", echo = False)
 
-    engine.connect()
-    engine.execute("""
-        CREATE TABLE IF NOT EXISTS hotissue(
-            day VARCHAR(10) NOT NULL,
-            text VARCHAR(255) NOT NULL,
-            img VARCHAR(255) NOT NULL,
-            url VARCHAR(255) NOT NULL
-        );"""
-    )
-    data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
-    print(data)
-    data.to_sql(name='hotissue', con=engine, schema = 'public', if_exists='replace', index=False)
+#     engine.connect()
+#     engine.execute("""
+#         CREATE TABLE IF NOT EXISTS hotissue(
+#             day VARCHAR(10) NOT NULL,
+#             text VARCHAR(255) NOT NULL,
+#             img VARCHAR(255) NOT NULL,
+#             url VARCHAR(255) NOT NULL
+#         );"""
+#     )
+#     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
+#     print(data)
+#     data.to_sql(name='hotissue', con=engine, schema = 'public', if_exists='replace', index=False)
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ def index():
     return "DB Created Done !!!"
 
 if __name__ == "__main__":
-    db_create()
+    # db_create()
     app.run()
 
 ## 부동산
