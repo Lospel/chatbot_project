@@ -15,16 +15,17 @@ def db_create():
 
     engine.connect()
     engine.execute("""
-      CREATE TABLE IF NOT EXISTS HotIssue(
-        day text, 
-        text text, 
-        img text, 
-        url text
-    );"""
+      CREATE TABLE IF NOT EXISTS public."HotIssue"
+(
+    day text COLLATE pg_catalog."default",
+    text text COLLATE pg_catalog."default",
+    img text COLLATE pg_catalog."default",
+    url text COLLATE pg_catalog."default"
+)"""
     )
     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
     print(data)
-    data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
+    data.to_sql(name='HotIssue', con=engine, schema = 'public', if_exists='replace', index=False)
 
 app = Flask(__name__)
 
