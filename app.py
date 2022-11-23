@@ -20,7 +20,7 @@ def db_create():
         text VARCHAR(255), 
         img VARCHAR(255), 
         url VARCHAR(255)
-      );"""
+    );"""
     )
     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\MainNews.csv')
     print(data)
