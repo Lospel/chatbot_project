@@ -15,13 +15,12 @@ def db_create():
 
     engine.connect()
     engine.execute("""
-      CREATE TABLE IF NOT EXISTS public."HotIssue"
-(
-    day text COLLATE pg_catalog."default",
-    text text COLLATE pg_catalog."default",
-    img text COLLATE pg_catalog."default",
-    url text COLLATE pg_catalog."default"
-)"""
+        CREATE TABLE IF NOT EXISTS HotIssue(
+            day VARCHAR(100) NOT NULL,
+            text VARCHAR(100) NOT NULL,
+            img VARCHAR(100) NOT NULL,
+            url VARCHAR(100) NOT NULL
+        );"""
     )
     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
     print(data)
