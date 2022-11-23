@@ -15,7 +15,7 @@ def db_create():
 
     engine.connect()
     engine.execute("""
-        CREATE TABLE IF NOT EXISTS HotIssue(
+        CREATE TABLE IF NOT EXISTS hotissue(
             day VARCHAR(10) NOT NULL,
             text VARCHAR(255) NOT NULL,
             img VARCHAR(255) NOT NULL,
