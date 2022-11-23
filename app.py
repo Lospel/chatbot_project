@@ -16,15 +16,15 @@ def db_create():
     engine.connect()
     engine.execute("""
         CREATE TABLE IF NOT EXISTS HotIssue(
-            day VARCHAR(100) NOT NULL,
-            text VARCHAR(100) NOT NULL,
-            img VARCHAR(100) NOT NULL,
-            url VARCHAR(100) NOT NULL
+            day VARCHAR(10) NOT NULL,
+            text VARCHAR(255) NOT NULL,
+            img VARCHAR(255) NOT NULL,
+            url VARCHAR(255) NOT NULL
         );"""
     )
     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
     print(data)
-    data.to_sql(name='HotIssue', con=engine, schema = 'public', if_exists='replace', index=False)
+    data.to_sql(name='hotissue', con=engine, schema = 'public', if_exists='replace', index=False)
 
 app = Flask(__name__)
 
