@@ -15,14 +15,14 @@ def db_create():
 
     engine.connect()
     engine.execute("""
-      CREATE TABLE MainNews(
-        day VARCHAR(10), 
-        text VARCHAR(255), 
-        img VARCHAR(255), 
-        url VARCHAR(255)
+      CREATE TABLE IF NOT EXISTS HotIssue(
+        day text, 
+        text text, 
+        img text, 
+        url text
     );"""
     )
-    data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\MainNews.csv')
+    data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\HotIssue.csv')
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
 
