@@ -5,13 +5,6 @@ from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 from sqlalchemy.sql import text 
 import json
 
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    # db_create()
-    return "DB Created Done !!!"
-
 ## DB 연결 Local
 def db_create():
     # 로컬
@@ -21,17 +14,24 @@ def db_create():
     engine = create_engine("postgres://iqnofbbojfepjv:0ade6fc6f063e65424efceadaea3b3b42ff8267b34dac02c40622cacf0dfb04c@ec2-23-21-76-219.compute-1.amazonaws.com:5432/ded2cbcqvof76m", echo = False)
 
     engine.connect()
-    engine.execute("""CREATE TABLE MainNews(
-    day VARCHAR(10), 
-    text VARCHAR(255), 
-    img VARCHAR(255), 
-    url VARCHAR(255)
-    )""")
-
+    engine.execute("""
+      CREATE TABLE MainNews(
+        day VARCHAR(10), 
+        text VARCHAR(255), 
+        img VARCHAR(255), 
+        url VARCHAR(255)
+      );"""
+    )
     data = pd.read_csv(r'C:\Users\h\Desktop\human-kim-db\data\MainNews.csv')
     print(data)
     data.to_sql(name='MainNews', con=engine, schema = 'public', if_exists='replace', index=False)
 
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    # db_create()
+    return "DB Created Done !!!"
 
 if __name__ == "__main__":
     db_create()
