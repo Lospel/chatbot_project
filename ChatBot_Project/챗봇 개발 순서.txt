@@ -1,0 +1,91 @@
+1. 챗봇 프로젝트 시작 준비
+- 개인별 만들고자 하는 챗봇을 생각. (서비스명) -> 신청사유로 작성
+- 회원가입
+- 배포서버 
+--> 선택1. Heroku 무료 11.28 종료 
+--> 선택2. 무료 서버 대안 
+	+ Pythonanywhere.com, 구름 Edu
+	개발하고, 배포하는게 매우 불편
+	
+2. 챗봇 개발 기반 준비 (PySpark 환경설정 Ubuntu)
+- 프로그램 설치
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+https://spark.apache.org/downloads.html
+
+- Window 기능 켜기/끄기 -> Windows 하이퍼바이저 플랫폼, 가상 머신 플랫폼 기능 켜기 -> 리부팅
+
+- PowerShall 관리자 모드 실행 -> 한줄씩 설치
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+-> 리부팅
+
+- 마이크로소프트 마켓 -> Ubuntu 1.8 설치 -> 아이디: human 비번: 1234
+
+- Ubuntu 
+(cd : 경로 바꾸기, cd .. : 이전 폴더로 돌아가기)
+-> sudo apt-get update
+-> sudo apt upgrade -y
+-> sudo apt-get install openjdk-8-jdk -y
+-> sudo wget https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz
+-> sudo tar -xvzf spark-3.2.0-bin-hadoop3.2.tgz
+-> sudo apt install python3.8 -y
+-> sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 1
+-> sudo apt upgrade python -y
+-> sudo apt upgrade python3 -y
+-> vi ~/.bashrc
+-> page down으로 끝까지 내려가기
+-> insert 누르고 물결표 지운 뒤,
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export SPARK_HOME=/home/human/spark-3.2.0-bin-hadoop3.2
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$SPARK_HOME/bin:$PATH
+export PYSPARK_PYTHON=/usr/bin/python3.8
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+-> :wq!(저장)(미저장:q!)
+-> source ~/.bashrc
+-> ls
+-> history
+-> mkdir pyspark_ml
+-> sudo apt install virtualenv -y
+-> sudo apt install python3-pip -y
+-> cd pyspark_ml/
+-> virtualenv --python=python3.8 venv
+-> source venv/bin/activate
+-> pip3 install numpy pandas matplotlib seaborn jupyterlab pyspark==3.2.0
+-> jupyter notebook -> localhost:8888 실행 이후 컨트롤+c 
+-> python -> from notebook.auth import passwd -> passwd() -> 1234
+-> 복사 후, 다른 곳에 적어 놓기
+'argon2:$argon2id$v=19$m=10240,t=10,p=8$ByxZLzO8PoZqjVBuTuGmeQ$3hftZxvhMpyZToLzGxwVogWvhKUSgwvYxD0yc3oa+3k'
+-> exit()
+->
+jupyter notebook --generate-config
+sudo vi /home/human/.jupyter/jupyter_notebook_config.py
+-> insert 후,
+c.NotebookApp.allow_origin = '*'
+c.NotebookApp.open_browser = False
+c.NotebookApp.password = 'passwd()에서 복사한 비밀번호 붙여넣기'
+-> :wq!
+-> pyspark -> http://localhost:8888/ 로 주피터 노트북 실행 -> 1234 
+-> 주피터 python3 새로 만들기.
+import numpy as np
+import pandas as pd
+sc
+
+3. 우분투에서 주피터 실행하기
+-> sudo apt-get update
+-> sudo apt upgrade -y
+-> source venv/bin/activate
+-> pyspark -> localhost:8888 실행
+
+4. 우분투에서 vscode 실행하기
+-> cd pyspark_ml/
+-> source venv/bin/activate
+-> code .
+-> pyspark
+
+5.
+배포서버 존재 : Heroku
+
+로컬서버 구축 : 테스트 -> 배포서버로 업데이트
+- DB 연동 주소
