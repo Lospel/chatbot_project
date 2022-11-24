@@ -18,3 +18,7 @@
 - 카카오톡 채널을 통해 제동되는 대화형 인터페이스의 챗봇.
 ![카카오톡 채널 챗봇 서비스](https://i.kakao.com/docs/assets/getting-started/examples.png)
 - 카카오 i 오픈 빌더를 활용. 엔티티, 시나리오, 블록, 파라미터, 컨텍스트, 스킬 등을 학습 및 배포함.
+
+## **주요 라이브러리**
+<img src="https://user-images.githubusercontent.com/115764991/203685524-2e6e3285-d0fa-49f9-a464-af8aebc4f91a.png" width="350" height="350">
+<img src="https://user-images.githubusercontent.com/115764991/203685529-b41a2583-2a14-49a5-85ca-02fb87e496b2.png" width="350" height="350">
